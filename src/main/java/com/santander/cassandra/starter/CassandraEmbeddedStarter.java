@@ -1,7 +1,6 @@
 package com.santander.cassandra.starter;
 
 import com.github.nosan.embedded.cassandra.Cassandra;
-import com.github.nosan.embedded.cassandra.Settings;
 import com.github.nosan.embedded.cassandra.Version;
 import com.github.nosan.embedded.cassandra.local.LocalCassandraFactory;
 
@@ -28,11 +27,6 @@ public class CassandraEmbeddedStarter {
         Version versionTest = Version.parse(VERSION);
         cassandraFactory.setVersion(versionTest);
         Cassandra cassandra = cassandraFactory.create();
-        try {
-            cassandra.start();
-            Settings settings = cassandra.getSettings();
-        } finally {
-            cassandra.stop();
-        }
+        cassandra.start();
     }
 }
